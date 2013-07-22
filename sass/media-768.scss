@@ -1,0 +1,79 @@
+.content {
+	
+	@include padding-leader(3);
+	
+		.home-portfolio {
+			
+			h2 {
+					@include adjust-font-size-to(32px);
+					@include leader(0);
+				}
+			.portfolio-piece {
+				width: 100%;
+				margin: 0 0 0 0;
+				@include padding-trailer(1.5);
+			}
+			figure {
+				.figcaption {
+					bottom: 2.25em;
+				}
+			}
+			
+			p {
+				@include trailer(1.5);
+			}
+		}
+		.home-blog {
+			
+				@include leader(1.5);
+				@include padding-leader(3);
+			h2 {
+				text-align: center;
+			}
+			.portfolio-piece {
+				width: 100%;
+				margin: 0 0 0 0;
+				
+			}
+			
+			a.button { 
+				text-decoration: none;
+				@include leader(0);
+				@include adjust-font-size-to(14px);
+				@include adjust-leading-to(1);
+				line-height: 1;
+
+				}
+				text-align: left;
+
+			.columns {
+				@include leader(.5);
+			}
+			p {
+				@include trailer(1);
+			}
+		}
+	
+}
+
+.footer {
+	
+	.columns {
+			@include flex-box-wrapper;
+			section {
+				vertical-align: top;
+				@include flex-box;
+				@include column-padding;
+			}
+		}
+	.social-buttons {
+		li {
+			margin-right: .30em;
+			img {
+				width: 62px;
+				height: 62px;
+			}
+			
+		}
+	}
+}

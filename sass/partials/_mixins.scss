@@ -1,0 +1,69 @@
+@mixin horizontal-centered-list( $ul: ul, $li: li ) {
+	overflow: hidden;
+
+	#{$ul},
+	#{$li} {
+		float: left;
+		position: relative;
+	}
+
+	#{$ul} {
+		left: 50%;
+	}
+
+	#{$li} {
+		right: 50%;
+	}
+}
+@mixin flex-box-wrapper {
+	display: -webkit-box;           /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;              /* OLD - Firefox 19- (doesn't work very well) */
+	display: -ms-flexbox;           /* TWEENER - IE 10 */
+	display: -webkit-flex;          /* NEW - Chrome */
+	display: flex;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+@mixin flex-box {
+	-webkit-box-flex: 1;      /* OLD - iOS 6-, Safari 3.1-6 */
+	-moz-box-flex: 1;         /* OLD - Firefox 19- */
+	-webkit-flex: 1;          /* Chrome */
+	-ms-flex: 1;              /* IE 10 */
+	flex: 1;                  /* NEW, Spec - Opera 12.1, Firefox 20+ */
+
+}
+@mixin side-padding {
+	padding-left: 1.5em;
+	padding-right: 1.5em;
+	@media screen and (min-width: 320px) {
+		
+	}
+
+	@media screen and (min-width: 480px) {
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+
+	@media screen and (min-width: 768px) {
+		padding-left: 2em;
+		padding-right: 2em;
+	}
+
+	@media screen and (min-width: 980px) {
+		padding-left: 4em;
+		padding-right: 4em;
+	}
+	@media screen and (min-width: 1280px) {
+
+	}
+}
+
+@mixin column-padding {
+	margin: 0 1em;
+}
+
+@mixin animation($content) {
+  @include experimental(animation, $content, -webkit, -moz, not -o, not -ms, official);
+}
+
+.element {
+  @include animation(my-animation 3s ease);
+}

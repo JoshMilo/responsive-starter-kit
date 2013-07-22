@@ -1,0 +1,52 @@
+.hero {
+	h1 { 
+		@include adjust-font-size-to(48px); 
+		@include adjust-leading-to(1);
+		@include padding-leader(0);
+		@include trailer(0);
+	}
+	h2 { 
+		@include adjust-font-size-to(24px); 
+		@include leader(0);
+		@include padding-leader(0);
+		@include adjust-leading-to(.5);
+		@include trailer(1);
+	}
+	a.hero-button.button { 
+	text-decoration: none;
+	@include leader(0);
+	@include adjust-font-size-to(18px);
+	@include adjust-leading-to(1);
+	line-height: 1;
+	}
+	.hero-copy {
+		@include padding-leader(7);
+		background-position: center 0;
+	}
+}
+.content { 
+	.columns {
+				@include flex-box-wrapper;
+				@include leader(1);
+			}
+			section {
+				@include padding-trailer(2);
+				@include flex-box;
+				@include column-padding;
+
+			}
+	.home-blog {
+			h2 {
+				text-align: center;
+			}
+			a.button { 
+				text-decoration: none;
+				@include leader(0);
+				@include adjust-font-size-to(14px);
+				@include adjust-leading-to(1);
+				line-height: 1;
+
+				}
+			text-align: left;
+		}
+}

@@ -1,0 +1,101 @@
+@import "base.scss";
+
+
+.hide-320 {
+	display: none;
+}
+
+.show-320 {
+	display: block;
+}
+
+@media screen and (min-width: 320px) {
+	
+	body { 
+		//background: transparent url('img/dev/homepage-320.jpg') 0 0 no-repeat; 
+	}
+
+}
+
+@media screen and (min-width: 480px) {
+	@import "480.scss";
+	.hide-480 {
+		display: none;
+	}
+	
+	.show-480 {
+		display: block;
+	}
+	
+	#footer {
+		text-align: center;
+	}
+
+	#footer .social-icons {
+		text-align: center;
+	}
+}
+
+@media screen and (min-width: 768px) {
+
+	@import "768.scss";
+
+	body { 
+		//background: transparent url('img/dev/homepage-768.jpg') 0 0 no-repeat; 
+	}
+
+	
+	.hide-768 {
+		display: none;
+	}
+	
+	.show-768 {
+		display: block;
+	}
+	
+	#footer {
+		text-align: center;
+	}
+
+	#footer .social-icons {
+		padding-bottom: 10px;
+		text-align: center;
+	}
+}
+
+@media screen and (min-width: 980px) {
+
+	@import "980.scss";
+
+	body { 
+		//background: transparent url('img/dev/homepage-980.jpg') 0 0 no-repeat; 
+	}
+
+	.hide-980 {
+		display: none;
+	}
+
+	.show-980 {
+		display: block;
+	}
+
+}
+
+
+@media screen and (min-width: 1280px) {
+
+	@import "1280.scss";
+
+	body { 
+		//background: transparent url('img/dev/homepage-large.jpg') 0 0 no-repeat; 
+	}
+
+	.hide-1280 {
+		display: none;
+	}
+
+	.show-1280 {
+		display: block;
+	}
+
+}

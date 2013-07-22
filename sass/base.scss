@@ -1,0 +1,348 @@
+@import "compass";
+@import "compass/reset";
+@import "partials/mixins";
+@import "compass/typography/vertical_rhythm";
+@import "compass/css3/box-sizing";
+
+/* Colors */
+
+$buttoncolor: #ff4a3b;
+$white: #fff;
+$gray-dark: #3a3a3a;
+$gray-light: #777777;
+$red-gradient: #d34e41;
+$blue-gradient: #76baba;
+$pink: #ebe5e6;
+/* Typography Rules */
+
+$base-font-size: 16px;
+$base-line-height: 24px;
+@include establish-baseline;
+
+//@import "compass/layout/grid-background";
+
+
+
+@font-face {
+    font-family: 'pn_thin';
+    src: url('fonts/pn_thin-webfont.eot');
+    src: url('fonts/pn_thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/pn_thin-webfont.woff') format('woff'),
+         url('fonts/pn_thin-webfont.ttf') format('truetype'),
+         url('fonts/pn_thin-webfont.svg#proxima_novathin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'pn_rgregular';
+    src: url('fonts/pn_reg-webfont.eot');
+    src: url('fonts/pn_reg-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/pn_reg-webfont.woff') format('woff'),
+         url('fonts/pn_reg-webfont.ttf') format('truetype'),
+         url('fonts/pn_reg-webfont.svg#pn_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a { 
+	&:hover, &:visited, &:link {
+		color: $buttoncolor; 
+	}
+	text-decoration: none;
+}
+
+h1, h2 {
+	text-transform: uppercase;
+}
+h1 { 
+	@include adjust-font-size-to(30px);
+}
+
+h2 {
+	@include adjust-font-size-to(18px);
+}
+
+h3 {
+	@include adjust-font-size-to(18px);
+	font-weight: bold;
+}
+.caps {
+	text-transform: uppercase;
+}
+/*Buttons */
+@mixin button { 
+	@include border-radius(50px);
+	padding: .5em 2em;
+	line-height: 1;
+	clear: both;
+	display: inline-block;
+	background-color: $buttoncolor;
+	&:hover {
+            @include background(linear-gradient(top,  lighten($buttoncolor, 10%), darken($buttoncolor, 5%)));
+    }
+}
+a.hero-button { 
+	$buttoncolor: $white;
+	@include button;
+}
+a.button { 
+	$buttoncolor: #ff4a3b;
+	color: $white;
+	@include button;
+}
+.big-button {
+	@include adjust-font-size-to(24px);
+}
+/* Skeleton */
+
+body {
+	
+	font-family: 'pn_rgregular';
+}
+
+.wrapper {
+	 //@include grid-background;
+}
+
+nav {
+	background: #3a3a3a;
+	text-transform: uppercase;
+	overflow: auto;
+	text-align: center;
+	@include adjust-leading-to(3);
+	a {
+		&:hover, &:visited, &:link {
+		color: $white;
+	}
+		
+	}
+	ul {
+		
+		li {
+			display: inline;
+			a {
+				
+			}
+			&:not(:last-of-type) {
+			margin-right: 27px;
+		}
+		}
+	}
+}
+
+.hero {
+	position: relative;
+	background: url('img/bg-top.jpg') center 0 no-repeat;
+	background-size: auto 480px;
+	height: 480px;
+	text-align: center;
+	text-transform: uppercase;
+	//@include padding-leader(7.5);
+	@include box-sizing(border-box);
+	//z-index: 2;
+
+	h1 {
+		color: #fff;
+		margin: 0;
+		line-height: 1;
+		z-index: 1000;
+		@include padding-leader(4);
+		-webkit-backface-visibility: visible;
+	}
+	h2 {
+		color: #fff;
+		@include leader(.5);
+		@include trailer(1.5);
+		line-height: 1;
+	}
+	a.hero-button { 
+		&:hover, &:visited, &:link {
+			color: #ff4a3b; 
+		}
+	text-decoration: none;
+	@include leader(0);
+	font-size: 24px;
+
+	}
+	
+	 .hero-copy {
+	 	//z-index: 9999;
+	 	background: url('img/top-pyramid.svg') center 0 no-repeat;
+	 	background-size: auto 480px;
+	 	height:480px;
+	 	width: 100%;
+	 }
+
+}
+.content {
+	background: url('img/bg-middle.jpg') center 0 no-repeat;
+	@include padding-leader(2);
+	text-align: center;
+		.home-portfolio {
+			@include side-padding();
+		}
+		figure {
+			position: relative;
+			overflow: hidden;
+			.figcaption {
+				text-align: left;
+				background: $white;
+				text-transform: uppercase;
+				display: block;
+				position: absolute;
+				height: 0;
+				line-height: 0;
+				overflow: hidden;
+				width: 100%;	
+			}
+			&:hover {
+					.figcaption {
+						padding: .5em .75em;
+						line-height: 1;
+						height: auto;
+						max-height: 100%;
+						bottom: 1.5em;
+						@include transition-property(max-height);
+						@include transition-duration(.2s);
+						@include transition-delay(0s);
+						@include transition-timing-function(ease-in);
+						width: 100%;
+					}
+				}
+		}
+		.portfolio-piece {
+			width: 100%;
+			margin: 0 auto;
+			display: block;
+			line-height: 1;
+			text-align: left;
+
+			@include padding-trailer(1);
+			img {
+				margin:0 auto;
+				padding: 0;
+				max-width: 100%;
+				height: auto;
+				vertical-align: baseline;
+				display: block;
+			}
+			
+
+		}
+		section {			
+				@include padding-trailer(2);
+		}
+		.columns section {
+			@include padding-trailer(0);
+		}
+	.home-blog-wrapper {
+		background: url('img/blog-pyramids.svg') center 0 no-repeat;
+	}
+		.home-blog {
+			@include side-padding();
+			@include padding-leader(3);
+			@include padding-trailer(1);
+			h2 {
+				@include adjust-font-size-to(30px);
+				@include padding-trailer(0.5);
+				line-height: 1.5;
+			}
+			h3 {
+				text-align: left;
+				a {
+					color: $gray-dark;
+					&:hover {
+						color: $buttoncolor;
+					}
+				}
+			}
+			.columns section {
+			@include padding-trailer(2);
+			}
+			.portfolio-piece {
+			margin: 0 auto;
+			display: block;
+			line-height: 1;
+			text-align: left;
+			@include padding-trailer(1);
+			img {
+				margin:0 auto;
+				display: block;
+				padding: 0;
+				max-width: 100%;
+				height: 72px;
+				vertical-align: baseline;
+			}
+		}
+	}
+	p {
+	text-align: left;
+	@include trailer(1);
+	}
+}
+
+.footer-wrapper {
+	background: #000 url('img/bg-footer.jpg') center bottom no-repeat;
+}
+.footer {
+	@include side-padding;
+	background: url('img/footer-pyramids.svg') center 0 no-repeat;
+	color: $white;
+	@include padding-leader(2);
+	@include padding-trailer(2);
+	.columns {
+
+	}
+	a { 
+		&:hover, &:visited, &:link {
+			color: $buttoncolor; 
+		}
+	}
+	a.button { 
+		&:hover, &:visited, &:link {
+			color: $white; 
+		}
+	}
+	h2 {
+				@include adjust-font-size-to(24px);
+				@include padding-trailer(0.5);
+				line-height: 1;
+	}
+
+	.contact {
+
+		ol {
+			li {
+				@include trailer(1);
+				input {
+					width: 100%;
+					height: 1.5em;
+				}
+				textarea {
+					width: 100%;
+					height: 6.5em;
+				}
+
+			}
+		}
+		@include trailer(1);
+	}
+	.social-buttons {
+		li {
+			display: inline;
+			margin-right: .25em;
+			img {
+				width: 47px;
+				height: 47px;
+			}
+			
+		}
+	}
+	section {
+			@include padding-trailer(1);
+			display: block;
+		}
+}
